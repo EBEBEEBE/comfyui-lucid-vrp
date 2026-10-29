@@ -1,0 +1,24 @@
+# Keep development history in Git, but omit it from release archives.
+/tests export-ignore
+/tools export-ignore
+/experiments export-ignore
+/examples export-ignore
+/docs-authoring export-ignore
+/docs-dev export-ignore
+/.agents export-ignore
+/.codex export-ignore
+/.github export-ignore
+/assets-source export-ignore
+/test-data export-ignore
+/reference export-ignore
+/AGENTS.md export-ignore
+/HANDOFF.md export-ignore
+"/M2 input.json" export-ignore
+"/M2 three-region input.json" export-ignore
+/vrp_config.json export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/.comfyignore export-ignore
+*.zip export-ignore
+*.7z export-ignore
+agents-acl-*.txt export-ignore

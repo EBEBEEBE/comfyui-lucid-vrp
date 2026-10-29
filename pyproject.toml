@@ -1,0 +1,18 @@
+[project]
+name = "lucid-vrp"
+version = "0.1.0"
+description = "Visual image editing, Anima regional prompting, and MOSS-Image layout prompting for classic ComfyUI."
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+# ComfyUI supplies torch, numpy, and Pillow; do not replace its runtime here.
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/EBEBEEBE/comfyui-lucid-vrp"
+Documentation = "https://github.com/EBEBEEBE/comfyui-lucid-vrp/blob/main/README.md"
+"Bug Tracker" = "https://github.com/EBEBEEBE/comfyui-lucid-vrp/issues"
+
+[tool.comfy]
+PublisherId = "eb"
+DisplayName = "LuCiD Visual Regional Painter"
+Icon = "https://raw.githubusercontent.com/EBEBEEBE/comfyui-lucid-vrp/main/docs/images/icon.png"

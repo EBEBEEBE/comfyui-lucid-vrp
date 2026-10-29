@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "debug": false,
+  "minimalstepgranularity": 0,
+  "loader_history_limit": 50,
+  "status_colors": {
+    "ok": {"background": "#294536", "text": "#d5eddd"},
+    "info": {"background": "#303f50", "text": "#dee7ef"},
+    "warning": {"background": "#57452b", "text": "#f5e4bf"},
+    "error": {"background": "#582f3b", "text": "#f8e1e7"}
+  },
+  "ui": {"list_height": 160, "row_height": 30, "status_padding": 5, "font_size": 12},
+  "default_regions": [],
+  "canvas_editor": {"rightButton": "lucid", "temporaryPicker": "alt", "shortcuts": {}},
+  "canvas_presets": {"Landscape 1600": [1600, 800]}
+}

@@ -1,0 +1,24 @@
+# Comfy Registry packaging uses this file, independently of .gitattributes.
+# Keep user guides, their images, example workflows, and all runtime modules.
+/tests/
+/tools/
+/experiments/
+/docs-authoring/
+/docs-dev/
+/.agents/
+/.codex/
+/.github/
+/assets-source/
+/test-data/
+/reference/
+/AGENTS.md
+/HANDOFF.md
+/M2 input.json
+/M2 three-region input.json
+/vrp_config.json
+/.gitignore
+/.gitattributes
+/.comfyignore
+*.zip
+*.7z
+agents-acl-*.txt

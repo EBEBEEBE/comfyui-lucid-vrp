@@ -1,0 +1,44 @@
+# Read-only reference repositories and local test assets
+/assets-source/
+/reference/
+/test-data/
+
+# Local agent configuration
+/.codex/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.coverage
+.coverage.*
+htmlcov/
+
+# Frontend dependencies
+node_modules/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Optional personal UX defaults (example is tracked)
+/vrp_config.json
+
+# Generated verification output (keep test code and intentional fixtures)
+/coverage/
+/coverage.xml
+/test-results/
+/playwright-report/
+/screenshots/
+/logs/
+/*.log
+
+# Generated packaging output, not source or license notices
+/build/
+/dist/
+*.egg-info/
