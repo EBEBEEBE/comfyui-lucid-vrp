@@ -1,0 +1,1212 @@
+{
+  "id": "59e77a8d-e8d6-44f8-9b17-2666c350d8ea",
+  "revision": 0,
+  "last_node_id": 24,
+  "last_link_id": 47,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "VRPCanvasUI",
+      "pos": [
+        -20,
+        0
+      ],
+      "size": [
+        420,
+        866.8571428571429
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 1,
+          "links": null
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "slot_index": 2,
+          "links": [
+            16
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "slot_index": 3,
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "slot_index": 4,
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "slot_index": 5,
+          "links": null
+        }
+      ],
+      "title": "Canvas - 1344 x 768 - Empty (txt2img)",
+      "properties": {
+        "vrpUiSections": {
+          "creation": false,
+          "restore": false
+        },
+        "Node name for S&R": "VRPCanvasUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Custom",
+        1344,
+        768,
+        64,
+        "Empty",
+        "{\"version\":1,\"revision\":0,\"alignment_revision\":0,\"active\":{\"id\":\"vrp-moss-seaside-example\",\"width\":1344,\"height\":768,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"history\":[],\"redo\":[],\"retained\":{\"blank\":null,\"imported\":null}}",
+        "Pad",
+        true
+      ],
+      "widgets_values_named": {
+        "preset": "Custom",
+        "width": 1344,
+        "height": 768,
+        "step": 64,
+        "latent_mode": "Empty",
+        "document_state": "{\"version\":1,\"revision\":0,\"alignment_revision\":0,\"active\":{\"id\":\"vrp-moss-seaside-example\",\"width\":1344,\"height\":768,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"history\":[],\"redo\":[],\"retained\":{\"blank\":null,\"imported\":null}}",
+        "alignment_method": "Pad",
+        "apply_to_image": true
+      }
+    },
+    {
+      "id": 2,
+      "type": "VRPRegionUI",
+      "pos": [
+        450,
+        0
+      ],
+      "size": [
+        420,
+        705.1428571428571
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "link": 1
+        },
+        {
+          "name": "previous_regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": null
+        },
+        {
+          "name": "external_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "regions",
+          "type": "VRP_REGIONS",
+          "slot_index": 1,
+          "links": [
+            3
+          ]
+        }
+      ],
+      "title": "1 - Blue short wavy hair",
+      "properties": {
+        "Node name for S&R": "VRPRegionUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "moss-blue-hair",
+        "1 - Blue short wavy hair",
+        "One school girl with short wavy blue hair, a single full-body figure walking naturally. Navy-and-white school uniform and a school bag. Her head, body and shoes fit inside the assigned bounding box. Anime watercolor style.",
+        "",
+        1,
+        "BBox",
+        "{\"version\":1,\"bbox\":{\"x\":0.06768048128342612,\"y\":0.125,\"width\":0.28125,\"height\":0.7708333333333334},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "",
+        null
+      ],
+      "widgets_values_named": {
+        "region_id": "moss-blue-hair",
+        "label": "1 - Blue short wavy hair",
+        "positive_prompt": "One school girl with short wavy blue hair, a single full-body figure walking naturally. Navy-and-white school uniform and a school bag. Her head, body and shoes fit inside the assigned bounding box. Anime watercolor style.",
+        "negative_prompt": "",
+        "weight": 1,
+        "authoring_mode": "BBox",
+        "authoring_state": "{\"version\":1,\"bbox\":{\"x\":0.06768048128342612,\"y\":0.125,\"width\":0.28125,\"height\":0.7708333333333334},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "legacy_editor_image": "",
+        "region_editor": null
+      }
+    },
+    {
+      "id": 3,
+      "type": "VRPRegionUI",
+      "pos": [
+        920,
+        0
+      ],
+      "size": [
+        420,
+        705.1428571428571
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "link": 2
+        },
+        {
+          "name": "previous_regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": 3
+        },
+        {
+          "name": "external_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "regions",
+          "type": "VRP_REGIONS",
+          "slot_index": 1,
+          "links": [
+            5
+          ]
+        }
+      ],
+      "title": "2 - Black ponytail",
+      "properties": {
+        "Node name for S&R": "VRPRegionUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "moss-black-ponytail",
+        "2 - Black ponytail",
+        "One school girl with black hair tied in a ponytail, a single full-body figure walking naturally. Navy-and-white school uniform and a school bag. Her head, body and shoes fit inside the assigned bounding box. Anime watercolor style.",
+        "",
+        1,
+        "BBox",
+        "{\"version\":1,\"bbox\":{\"x\":0.46417607447018927,\"y\":0.13366508219449372,\"width\":0.28125,\"height\":0.7708333333333334},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "",
+        null
+      ],
+      "widgets_values_named": {
+        "region_id": "moss-black-ponytail",
+        "label": "2 - Black ponytail",
+        "positive_prompt": "One school girl with black hair tied in a ponytail, a single full-body figure walking naturally. Navy-and-white school uniform and a school bag. Her head, body and shoes fit inside the assigned bounding box. Anime watercolor style.",
+        "negative_prompt": "",
+        "weight": 1,
+        "authoring_mode": "BBox",
+        "authoring_state": "{\"version\":1,\"bbox\":{\"x\":0.46417607447018927,\"y\":0.13366508219449372,\"width\":0.28125,\"height\":0.7708333333333334},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "legacy_editor_image": "",
+        "region_editor": null
+      }
+    },
+    {
+      "id": 4,
+      "type": "VRPRegionUI",
+      "pos": [
+        1390,
+        0
+      ],
+      "size": [
+        410,
+        699.4285714285714
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "link": 4
+        },
+        {
+          "name": "previous_regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": 5
+        },
+        {
+          "name": "external_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "slot_index": 0,
+          "links": [
+            37
+          ]
+        },
+        {
+          "name": "regions",
+          "type": "VRP_REGIONS",
+          "slot_index": 1,
+          "links": [
+            38
+          ]
+        }
+      ],
+      "title": "3 - Seaside pavement",
+      "properties": {
+        "Node name for S&R": "VRPRegionUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "moss-seaside-pavement",
+        "3 - Seaside pavement",
+        "A seaside pavement covering the lower part of the scene. Pale paving stones beneath the walking figures, with a low railing along the sea. Soft anime watercolor colors.",
+        "",
+        1,
+        "BBox",
+        "{\"version\":1,\"bbox\":{\"x\":0.03125,\"y\":0.5416666666666666,\"width\":0.9375,\"height\":0.4375},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "",
+        null
+      ],
+      "widgets_values_named": {
+        "region_id": "moss-seaside-pavement",
+        "label": "3 - Seaside pavement",
+        "positive_prompt": "A seaside pavement covering the lower part of the scene. Pale paving stones beneath the walking figures, with a low railing along the sea. Soft anime watercolor colors.",
+        "negative_prompt": "",
+        "weight": 1,
+        "authoring_mode": "BBox",
+        "authoring_state": "{\"version\":1,\"bbox\":{\"x\":0.03125,\"y\":0.5416666666666666,\"width\":0.9375,\"height\":0.4375},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "legacy_editor_image": "",
+        "region_editor": null
+      }
+    },
+    {
+      "id": 5,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        1340,
+        780
+      ],
+      "size": [
+        460,
+        250
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            39
+          ]
+        }
+      ],
+      "title": "Global scene - anime watercolor",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Anime watercolor illustration of exactly two distinct school girls walking along a paved seaside walkway, both visible from head to shoes. Both wear navy-and-white school uniforms and carry school bags. Their feet rest on the same pavement. Blue sea behind a low railing, open sky, soft coastal daylight, delicate anime linework and soft watercolor colors. A continuous scene filling the image."
+      ],
+      "widgets_values_named": {
+        "value": "Anime watercolor illustration of exactly two distinct school girls walking along a paved seaside walkway, both visible from head to shoes. Both wear navy-and-white school uniforms and carry school bags. Their feet rest on the same pavement. Blue sea behind a low railing, open sky, soft coastal daylight, delicate anime linework and soft watercolor colors. A continuous scene filling the image."
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 7,
+      "type": "UNETLoader",
+      "pos": [
+        1850,
+        -370
+      ],
+      "size": [
+        350,
+        100
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "title": "MOSS Image SFT diffusion model",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "moss_image_sft_bf16.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "moss_image_sft_bf16.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 8,
+      "type": "CLIPLoader",
+      "pos": [
+        1850,
+        -240
+      ],
+      "size": [
+        350,
+        110
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            40
+          ]
+        }
+      ],
+      "title": "Qwen 3.5 9B - type MUST be moss_image",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "CLIPLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "qwen3.5_9b_int8_convrot.safetensors",
+        "moss_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3.5_9b_int8_convrot.safetensors",
+        "type": "moss_image",
+        "device": "default"
+      }
+    },
+    {
+      "id": 9,
+      "type": "VAELoader",
+      "pos": [
+        2200,
+        -210
+      ],
+      "size": [
+        350,
+        80
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            18
+          ]
+        }
+      ],
+      "title": "Flux.2 VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "flux2-vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "flux2-vae.safetensors"
+      }
+    },
+    {
+      "id": 12,
+      "type": "SkipLayerGuidanceDiTSimple",
+      "pos": [
+        2200,
+        -370
+      ],
+      "size": [
+        350,
+        130
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            10
+          ]
+        }
+      ],
+      "title": "MOSS unconditional skip - single layer 22",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "SkipLayerGuidanceDiTSimple",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "22",
+        0,
+        1
+      ],
+      "widgets_values_named": {
+        "double_layers": "",
+        "single_layers": "22",
+        "start_percent": 0,
+        "end_percent": 1
+      }
+    },
+    {
+      "id": 13,
+      "type": "KSampler",
+      "pos": [
+        2550,
+        -370
+      ],
+      "size": [
+        290,
+        270
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 44
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 46
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            17
+          ]
+        }
+      ],
+      "title": "MOSS SFT Sampler",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        20261026,
+        "fixed",
+        50,
+        3,
+        "euler",
+        "sgm_uniform",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 20261026,
+        "control_after_generate": "fixed",
+        "steps": 50,
+        "cfg": 3,
+        "sampler_name": "euler",
+        "scheduler": "sgm_uniform",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 14,
+      "type": "VAEDecode",
+      "pos": [
+        2350,
+        -100
+      ],
+      "size": [
+        350,
+        70
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 17
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            19
+          ]
+        }
+      ],
+      "title": "Decode with Flux.2 VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 15,
+      "type": "SaveImage",
+      "pos": [
+        2350,
+        0
+      ],
+      "size": [
+        520,
+        650
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": null
+        }
+      ],
+      "title": "Save - seaside school girls - anime watercolor",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "SaveImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "MOSS-VRP-"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "MOSS-VRP-"
+      }
+    },
+    {
+      "id": 16,
+      "type": "PreviewAny",
+      "pos": [
+        1850,
+        860
+      ],
+      "size": [
+        450,
+        300
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": null
+        }
+      ],
+      "title": "Inspect moss_prompt_json",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 21,
+      "type": "PreviewAny",
+      "pos": [
+        2350,
+        720
+      ],
+      "size": [
+        520,
+        420
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Preview Combined Prompts",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 22,
+      "type": "MOSSVisualRegionalPromptExperimental",
+      "pos": [
+        1850,
+        0
+      ],
+      "size": [
+        450,
+        790
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "link": 37
+        },
+        {
+          "name": "regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": 38
+        },
+        {
+          "name": "global_positive",
+          "shape": 7,
+          "type": "STRING",
+          "link": 39
+        },
+        {
+          "name": "negative_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "link": 47
+        },
+        {
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "moss_prompt_json",
+          "type": "STRING",
+          "links": [
+            42
+          ]
+        },
+        {
+          "name": "combined_prompt",
+          "type": "STRING",
+          "links": [
+            43
+          ]
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            44
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "title": "MOSS - Visual Regional Prompt (3 incoming regions)",
+      "properties": {
+        "Node name for S&R": "MOSSVisualRegionalPromptExperimental",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        },
+        "mossSelectedRegion": "moss-region-1"
+      },
+      "widgets_values": [
+        "{\"version\":2,\"canvas\":{\"width\":1344,\"height\":768},\"regions\":[]}",
+        0.5,
+        ""
+      ],
+      "widgets_values_named": {
+        "vrp_state": "{\"version\":2,\"canvas\":{\"width\":1344,\"height\":768},\"regions\":[]}",
+        "mask_threshold": 0.5,
+        "global_negative": ""
+      }
+    },
+    {
+      "id": 24,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        1340,
+        1060
+      ],
+      "size": [
+        460,
+        110
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            47
+          ]
+        }
+      ],
+      "title": "Global Negative",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        },
+        "cnr_id": "comfy-core",
+        "ver": "0.42.0",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "worst quality, bad anatomy, extra limbs, watermark, jpeg artifact, white border, blank paper margin, vignette"
+      ],
+      "widgets_values_named": {
+        "value": "worst quality, bad anatomy, extra limbs, watermark, jpeg artifact, white border, blank paper margin, vignette"
+      },
+      "color": "#332922",
+      "bgcolor": "#593930"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "VRP_CANVAS"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "VRP_CANVAS"
+    ],
+    [
+      3,
+      2,
+      1,
+      3,
+      1,
+      "VRP_REGIONS"
+    ],
+    [
+      4,
+      3,
+      0,
+      4,
+      0,
+      "VRP_CANVAS"
+    ],
+    [
+      5,
+      3,
+      1,
+      4,
+      1,
+      "VRP_REGIONS"
+    ],
+    [
+      9,
+      7,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      10,
+      12,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      16,
+      1,
+      2,
+      13,
+      3,
+      "LATENT"
+    ],
+    [
+      17,
+      13,
+      0,
+      14,
+      0,
+      "LATENT"
+    ],
+    [
+      18,
+      9,
+      0,
+      14,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      14,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      4,
+      0,
+      22,
+      0,
+      "VRP_CANVAS"
+    ],
+    [
+      38,
+      4,
+      1,
+      22,
+      1,
+      "VRP_REGIONS"
+    ],
+    [
+      39,
+      5,
+      0,
+      22,
+      2,
+      "STRING"
+    ],
+    [
+      40,
+      8,
+      0,
+      22,
+      4,
+      "CLIP"
+    ],
+    [
+      42,
+      22,
+      0,
+      16,
+      0,
+      "STRING"
+    ],
+    [
+      43,
+      22,
+      1,
+      21,
+      0,
+      "STRING"
+    ],
+    [
+      44,
+      22,
+      2,
+      13,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      46,
+      22,
+      3,
+      13,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      47,
+      24,
+      0,
+      22,
+      3,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4950000000000045,
+      "offset": [
+        243.44631430881049,
+        300.3127673468924
+      ]
+    },
+    "vrp_example": {
+      "description": "Experimental MOSS SFT: three VRP Region bboxes, two school girls on a seaside pavement, anime watercolor",
+      "validation": "Structural/runtime-contract checks only; no generated image."
+    },
+    "moss_bbox_ab": {
+      "variant": "b",
+      "difference": "Exact swap of the two girls bounding boxes; all text, node order, models, seed and sampling settings identical. Save prefix differs for identification.",
+      "generation_tested": false
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "qgn_navigation_groups": [],
+    "qgn_locked": false,
+    "frontendVersion": "1.57.1",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "anima_vrp_preview": {
+      "2": {
+        "mask": "[\"[[null,null,null],[]]\",1344,768,0,\"vrp-moss-seaside-example\",null]"
+      },
+      "3": {
+        "mask": "[\"[[null,null,null],[]]\",1344,768,0,\"vrp-moss-seaside-example\",null]"
+      },
+      "4": {
+        "mask": "[\"[[null,null,null],[]]\",1344,768,0,\"vrp-moss-seaside-example\",null]"
+      },
+      "22": {
+        "regions": "[[38,\"4\",1],[[\"4\",0,[[\"region_id\",\"moss-seaside-pavement\"],[\"label\",\"3 - Seaside pavement\"],[\"positive_prompt\",\"A seaside pavement covering the lower part of the scene. Pale paving stones beneath the walking figures, with a low railing along the sea. Soft anime watercolor colors.\"],[\"negative_prompt\",\"\"],[\"weight\",1],[\"authoring_mode\",\"BBox\"],[\"authoring_state\",\"{\\\"version\\\":1,\\\"bbox\\\":{\\\"x\\\":0.03125,\\\"y\\\":0.5416666666666666,\\\"width\\\":0.9375,\\\"height\\\":0.4375},\\\"painted_mask\\\":{\\\"image_ref\\\":\\\"\\\"}}\"],[\"legacy_editor_image\",\"\"],[\"region_editor\",null]],[[\"canvas\",[4,\"3\",0]],[\"previous_regions\",[5,\"3\",1]],[\"external_mask\",[null,null,null]],[\"region_id\",[null,null,null]],[\"label\",[null,null,null]],[\"positive_prompt\",[null,null,null]],[\"negative_prompt\",[null,null,null]],[\"weight\",[null,null,null]],[\"authoring_mode\",[null,null,null]],[\"authoring_state\",[null,null,null]],[\"legacy_editor_image\",[null,null,null]]],{\"Node name for S&R\":\"VRPRegionUI\",\"ue_properties\":{\"widget_ue_connectable\":{},\"version\":\"7.8\",\"input_ue_unconnectable\":{}}}],[\"3\",0,[[\"region_id\",\"moss-black-ponytail\"],[\"label\",\"2 - Black ponytail\"],[\"positive_prompt\",\"One school girl with black hair tied in a ponytail, a single full-body figure walking naturally. Navy-and-white school uniform and a school bag. Her head, body and shoes fit inside the assigned bounding box. Anime watercolor style.\"],[\"negative_prompt\",\"\"],[\"weight\",1],[\"authoring_mode\",\"BBox\"],[\"authoring_state\",\"{\\\"version\\\":1,\\\"bbox\\\":{\\\"x\\\":0.46417607447018927,\\\"y\\\":0.13366508219449372,\\\"width\\\":0.28125,\\\"height\\\":0.7708333333333334},\\\"painted_mask\\\":{\\\"image_ref\\\":\\\"\\\"}}\"],[\"legacy_editor_image\",\"\"],[\"region_editor\",null]],[[\"canvas\",[2,\"2\",0]],[\"previous_regions\",[3,\"2\",1]],[\"external_mask\",[null,null,null]],[\"region_id\",[null,null,null]],[\"label\",[null,null,null]],[\"positive_prompt\",[null,null,null]],[\"negative_prompt\",[null,null,null]],[\"weight\",[null,null,null]],[\"authoring_mode\",[null,null,null]],[\"authoring_state\",[null,null,null]],[\"legacy_editor_image\",[null,null,null]]],{\"Node name for S&R\":\"VRPRegionUI\",\"ue_properties\":{\"widget_ue_connectable\":{},\"version\":\"7.8\",\"input_ue_unconnectable\":{}}}],[\"2\",0,[[\"region_id\",\"moss-blue-hair\"],[\"label\",\"1 - Blue short wavy hair\"],[\"positive_prompt\",\"One school girl with short wavy blue hair, a single full-body figure walking naturally. Navy-and-white school uniform and a school bag. Her head, body and shoes fit inside the assigned bounding box. Anime watercolor style.\"],[\"negative_prompt\",\"\"],[\"weight\",1],[\"authoring_mode\",\"BBox\"],[\"authoring_state\",\"{\\\"version\\\":1,\\\"bbox\\\":{\\\"x\\\":0.06768048128342612,\\\"y\\\":0.125,\\\"width\\\":0.28125,\\\"height\\\":0.7708333333333334},\\\"painted_mask\\\":{\\\"image_ref\\\":\\\"\\\"}}\"],[\"legacy_editor_image\",\"\"],[\"region_editor\",null]],[[\"canvas\",[1,\"1\",0]],[\"previous_regions\",[null,null,null]],[\"external_mask\",[null,null,null]],[\"region_id\",[null,null,null]],[\"label\",[null,null,null]],[\"positive_prompt\",[null,null,null]],[\"negative_prompt\",[null,null,null]],[\"weight\",[null,null,null]],[\"authoring_mode\",[null,null,null]],[\"authoring_state\",[null,null,null]],[\"legacy_editor_image\",[null,null,null]]],{\"Node name for S&R\":\"VRPRegionUI\",\"ue_properties\":{\"widget_ue_connectable\":{},\"version\":\"7.8\",\"input_ue_unconnectable\":{}}}],[\"1\",0,[[\"preset\",\"Custom\"],[\"width\",1344],[\"height\",768],[\"step\",64],[\"latent_mode\",\"Empty\"],[\"document_state\",\"{\\\"version\\\":1,\\\"revision\\\":0,\\\"alignment_revision\\\":0,\\\"active\\\":{\\\"id\\\":\\\"vrp-moss-seaside-example\\\",\\\"width\\\":1344,\\\"height\\\":768,\\\"origin\\\":\\\"blank\\\",\\\"image_ref\\\":null,\\\"editor_ref\\\":null,\\\"layers\\\":null},\\\"history\\\":[],\\\"redo\\\":[],\\\"retained\\\":{\\\"blank\\\":null,\\\"imported\\\":null}}\"],[\"alignment_method\",\"Pad\"],[\"apply_to_image\",true]],[[\"vae\",[null,null,null]],[\"preset\",[null,null,null]],[\"width\",[null,null,null]],[\"height\",[null,null,null]],[\"step\",[null,null,null]],[\"latent_mode\",[null,null,null]],[\"document_state\",[null,null,null]],[\"alignment_method\",[null,null,null]],[\"apply_to_image\",[null,null,null]]],{\"vrpUiSections\":{\"creation\":false,\"restore\":false},\"Node name for S&R\":\"VRPCanvasUI\",\"ue_properties\":{\"widget_ue_connectable\":{},\"version\":\"7.8\",\"input_ue_unconnectable\":{}}}]]]",
+        "threshold": 0.5,
+        "canvas": {
+          "width": 1344,
+          "height": 768,
+          "revision": 0,
+          "image_ref": null,
+          "source_id": "vrp-moss-seaside-example"
+        }
+      }
+    }
+  },
+  "extensions": {
+    "seed_widgets": {
+      "13": 0
+    }
+  },
+  "version": 0.4
+}

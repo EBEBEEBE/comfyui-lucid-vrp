@@ -1,5 +1,5 @@
 # Comfy Registry packaging uses this file, independently of .gitattributes.
-# Keep user guides, their images, example workflows, and all runtime modules.
+# Keep runtime modules, extracted workflows and their input image.
 /tests/
 /tools/
 /experiments/
@@ -22,3 +22,6 @@
 *.zip
 *.7z
 agents-acl-*.txt
+
+# Full documentation stays on GitHub; extracted examples ship in Registry.
+/docs/

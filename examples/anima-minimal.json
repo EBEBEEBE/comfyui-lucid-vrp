@@ -1,0 +1,794 @@
+{
+  "id": "b1b7ed10-a60b-4a55-afeb-d304c645810d",
+  "revision": 0,
+  "last_node_id": 40,
+  "last_link_id": 14,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "AnimaVRPUI",
+      "pos": [
+        1050,
+        0
+      ],
+      "size": [
+        510,
+        1140
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 6
+        },
+        {
+          "name": "canvas",
+          "shape": 7,
+          "type": "VRP_CANVAS",
+          "link": 5
+        },
+        {
+          "name": "regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": null
+        },
+        {
+          "name": "global_positive",
+          "shape": 7,
+          "type": "STRING",
+          "link": 7
+        },
+        {
+          "name": "global_negative",
+          "shape": 7,
+          "type": "STRING",
+          "link": 8
+        },
+        {
+          "name": "advanced_settings",
+          "shape": 7,
+          "type": "VRP_ADVSETTINGS",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "patched_model",
+          "type": "MODEL",
+          "links": [
+            9
+          ]
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "links": [
+            12
+          ]
+        },
+        {
+          "name": "combined_prompt",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "global_prompt_passthrough",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimaVRPUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "vrpSelectedRegion": "2362dcfe-eeb6-4964-aa1a-15e2bc60dbf7"
+      },
+      "widgets_values": [
+        "{\"canvas\":{\"height\":1024,\"width\":2048},\"regions\":[{\"id\":\"439e2f4e-49fb-4dd9-a940-8619c4cb1a1f\",\"label\":\"char1\",\"x\":0.31641031419926774,\"y\":0,\"width\":0.3644478948997753,\"height\":1,\"prompt\":\"girl in long white chinadress with blue lotus print, short wavy blue hair, sitting on chair, facing viewer, crossed legs, ((tinted sunglasses)), elbow rest, head tilt, ((smile)), looking at viewer over eyewear, closed mouth, mole under mouth\",\"negative_prompt\":\"\",\"weight\":1},{\"id\":\"4a017835-d751-47ad-8e3e-ffda04adf5e9\",\"label\":\"char2\",\"x\":0,\"y\":0,\"width\":0.3708417176173148,\"height\":1,\"prompt\":\"girl in long black chinadress with golden dragon print, black long hair with double hair buns, bun cover, sitting on chair, facing to the side, facing another, turning head, emotionless, jitome, narrowed eyes, looking at viewer, \",\"negative_prompt\":\"\",\"weight\":1},{\"id\":\"2362dcfe-eeb6-4964-aa1a-15e2bc60dbf7\",\"label\":\"char3\",\"x\":0.6146059418775647,\"y\":0,\"width\":0.3853940581224353,\"height\":1,\"prompt\":\"girl in long red chinadress with flow print, rabbit ears, purple medium hair, sitting on chair, smile, wink, one eye closed, waving at viewer, \",\"negative_prompt\":\"\",\"weight\":1}],\"version\":2}",
+        true,
+        null,
+        "",
+        ""
+      ],
+      "widgets_values_named": {
+        "vrp_state": "{\"canvas\":{\"height\":1024,\"width\":2048},\"regions\":[{\"id\":\"439e2f4e-49fb-4dd9-a940-8619c4cb1a1f\",\"label\":\"char1\",\"x\":0.31641031419926774,\"y\":0,\"width\":0.3644478948997753,\"height\":1,\"prompt\":\"girl in long white chinadress with blue lotus print, short wavy blue hair, sitting on chair, facing viewer, crossed legs, ((tinted sunglasses)), elbow rest, head tilt, ((smile)), looking at viewer over eyewear, closed mouth, mole under mouth\",\"negative_prompt\":\"\",\"weight\":1},{\"id\":\"4a017835-d751-47ad-8e3e-ffda04adf5e9\",\"label\":\"char2\",\"x\":0,\"y\":0,\"width\":0.3708417176173148,\"height\":1,\"prompt\":\"girl in long black chinadress with golden dragon print, black long hair with double hair buns, bun cover, sitting on chair, facing to the side, facing another, turning head, emotionless, jitome, narrowed eyes, looking at viewer, \",\"negative_prompt\":\"\",\"weight\":1},{\"id\":\"2362dcfe-eeb6-4964-aa1a-15e2bc60dbf7\",\"label\":\"char3\",\"x\":0.6146059418775647,\"y\":0,\"width\":0.3853940581224353,\"height\":1,\"prompt\":\"girl in long red chinadress with flow print, rabbit ears, purple medium hair, sitting on chair, smile, wink, one eye closed, waving at viewer, \",\"negative_prompt\":\"\",\"weight\":1}],\"version\":2}",
+        "prompt_mix": true,
+        "bbox_editor": null,
+        "Add region": "",
+        "Delete selected region": ""
+      }
+    },
+    {
+      "id": 5,
+      "type": "KSampler",
+      "pos": [
+        1620,
+        0
+      ],
+      "size": [
+        310,
+        300
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 9
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 11
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        502757067830073,
+        "fixed",
+        20,
+        4.5,
+        "er_sde",
+        "sgm_uniform",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 502757067830073,
+        "control_after_generate": "fixed",
+        "steps": 20,
+        "cfg": 4.5,
+        "sampler_name": "er_sde",
+        "scheduler": "sgm_uniform",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 6,
+      "type": "UNETLoader",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        420,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "JANIMA29b_V1.1_bf16.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "JANIMA29b_V1.1_bf16.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 7,
+      "type": "CLIPLoader",
+      "pos": [
+        0,
+        150
+      ],
+      "size": [
+        420,
+        130
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "CLIPLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "qwen_3_06b_base.safetensors",
+        "stable_diffusion",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen_3_06b_base.safetensors",
+        "type": "stable_diffusion",
+        "device": "default"
+      }
+    },
+    {
+      "id": 8,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        1620,
+        370
+      ],
+      "size": [
+        310,
+        160
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 13
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAEDecodeTiled",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        512,
+        64,
+        64,
+        8
+      ],
+      "widgets_values_named": {
+        "tile_size": 512,
+        "overlap": 64,
+        "temporal_size": 64,
+        "temporal_overlap": 8
+      }
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1990,
+        0
+      ],
+      "size": [
+        520,
+        800
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "SaveImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "AnimaVRP"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "AnimaVRP"
+      }
+    },
+    {
+      "id": 16,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        480,
+        350
+      ],
+      "size": [
+        510,
+        220
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "title": "Global negative",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "worst quality, low quality, score_1, score_2, score_3, artist name, old, worst quality, normal quality, anatomical nonsense, bad anatomy, long torso, stretched torso, 4 fingers, 6 fingers, extra fingers, watermark,  transparent, low quality, logo, text, signature, censored,, "
+      ],
+      "widgets_values_named": {
+        "value": "worst quality, low quality, score_1, score_2, score_3, artist name, old, worst quality, normal quality, anatomical nonsense, bad anatomy, long torso, stretched torso, 4 fingers, 6 fingers, extra fingers, watermark,  transparent, low quality, logo, text, signature, censored,, "
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 19,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        480,
+        0
+      ],
+      "size": [
+        510,
+        290
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "title": "Global positive",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "masterpiece, best quality, very aesthetic, absurdres, score_9, score_8, year 2025, newest, highres, watercolor, anime coloring\n\nfrom above, cowboy shot\n\nindoors, east asian architecture, golden and red theme, lattice, lanterns, wooden tea table, ancient chinese style chair, scnr\n\n3girls, sitting on chair, side-by-side, "
+      ],
+      "widgets_values_named": {
+        "value": "masterpiece, best quality, very aesthetic, absurdres, score_9, score_8, year 2025, newest, highres, watercolor, anime coloring\n\nfrom above, cowboy shot\n\nindoors, east asian architecture, golden and red theme, lattice, lanterns, wooden tea table, ancient chinese style chair, scnr\n\n3girls, sitting on chair, side-by-side, "
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 24,
+      "type": "VAELoader",
+      "pos": [
+        0,
+        340
+      ],
+      "size": [
+        420,
+        90
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            3,
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_vae.safetensors"
+      }
+    },
+    {
+      "id": 34,
+      "type": "VRPCanvasUI",
+      "pos": [
+        0,
+        490
+      ],
+      "size": [
+        420,
+        818
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "vrpUiSections": {
+          "creation": false,
+          "restore": false
+        },
+        "Node name for S&R": "VRPCanvasUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "2048 x 1024 (2:1 - 2)",
+        2048,
+        1024,
+        64,
+        "Auto",
+        "{\"version\":1,\"revision\":5,\"alignment_revision\":0,\"active\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"retained\":{\"blank\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"imported\":null},\"history\":[{\"id\":\"02cea4fa-369b-48cf-8690-986b36e9a633\",\"width\":1024,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"editor_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"clipspace-painted-1792330651960.png [input]\",\"editor_ref\":\"clipspace-painted-masked-1792330651960.png [input]\",\"layers\":{\"base_ref\":\"clipspace-mask-1792330651960.png [input]\",\"paint_ref\":\"clipspace-paint-1792330651960.png [input]\"}},{\"id\":\"a04154e3-d000-4461-9be7-1f3153248961\",\"width\":2048,\"height\":1152,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null}],\"redo\":[]}",
+        "Pad",
+        true
+      ],
+      "widgets_values_named": {
+        "preset": "2048 x 1024 (2:1 - 2)",
+        "width": 2048,
+        "height": 1024,
+        "step": 64,
+        "latent_mode": "Auto",
+        "document_state": "{\"version\":1,\"revision\":5,\"alignment_revision\":0,\"active\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"retained\":{\"blank\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"imported\":null},\"history\":[{\"id\":\"02cea4fa-369b-48cf-8690-986b36e9a633\",\"width\":1024,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"editor_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"clipspace-painted-1792330651960.png [input]\",\"editor_ref\":\"clipspace-painted-masked-1792330651960.png [input]\",\"layers\":{\"base_ref\":\"clipspace-mask-1792330651960.png [input]\",\"paint_ref\":\"clipspace-paint-1792330651960.png [input]\"}},{\"id\":\"a04154e3-d000-4461-9be7-1f3153248961\",\"width\":2048,\"height\":1152,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null}],\"redo\":[]}",
+        "alignment_method": "Pad",
+        "apply_to_image": true
+      }
+    },
+    {
+      "id": 40,
+      "type": "MarkdownNote",
+      "pos": [
+        480,
+        630
+      ],
+      "size": [
+        510,
+        250
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Minimal Setup",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "All three regions are inside the Anima VRP node. Select char1, char2, or char3 in its region list to edit that region's prompts, name, and weight. Drag a box to move it or an edge to resize it.\n\nGlobal text includes the original prefix prompts. Prompt Mix is ON. Core encodes the prompts and supplies MODEL, positive, negative, and latent directly to KSampler."
+      ],
+      "widgets_values_named": {
+        "text": "All three regions are inside the Anima VRP node. Select char1, char2, or char3 in its region list to edit that region's prompts, name, and weight. Drag a box to move it or an edge to resize it.\n\nGlobal text includes the original prefix prompts. Prompt Mix is ON. Core encodes the prompts and supplies MODEL, positive, negative, and latent directly to KSampler."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      6,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      7,
+      0,
+      3,
+      1,
+      "CLIP"
+    ],
+    [
+      3,
+      24,
+      0,
+      34,
+      0,
+      "VAE"
+    ],
+    [
+      4,
+      24,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      5,
+      34,
+      0,
+      3,
+      3,
+      "VRP_CANVAS"
+    ],
+    [
+      6,
+      34,
+      2,
+      3,
+      2,
+      "LATENT"
+    ],
+    [
+      7,
+      19,
+      0,
+      3,
+      5,
+      "STRING"
+    ],
+    [
+      8,
+      16,
+      0,
+      3,
+      6,
+      "STRING"
+    ],
+    [
+      9,
+      3,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      10,
+      3,
+      1,
+      5,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      3,
+      2,
+      5,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      3,
+      3,
+      5,
+      3,
+      "LATENT"
+    ],
+    [
+      13,
+      5,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      14,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "ds": {
+      "scale": 0.6050000000000012,
+      "offset": [
+        399.54126585921404,
+        207.74451785206327
+      ]
+    },
+    "qgn_navigation_groups": [],
+    "qgn_locked": false,
+    "links_added_by_ue": [],
+    "frontendVersion": "1.53.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "anima_vrp_preview": {
+      "3": {
+        "regions": "[]",
+        "positive": "[[7,\"19\",0],[[\"19\",0,[[\"value\",\"masterpiece, best quality, very aesthetic, absurdres, score_9, score_8, year 2025, newest, highres, watercolor, anime coloring\\n\\nfrom above, cowboy shot\\n\\nindoors, east asian architecture, golden and red theme, lattice, lanterns, wooden tea table, ancient chinese style chair, scnr\\n\\n3girls, sitting on chair, side-by-side, \"]],[[\"value\",[null,null,null]]],{\"cnr_id\":\"comfy-core\",\"ver\":\"0.37.0\",\"Node name for S&R\":\"PrimitiveStringMultiline\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}]]]",
+        "masks": {}
+      }
+    }
+  },
+  "version": 0.4
+}

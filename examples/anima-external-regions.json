@@ -1,0 +1,1882 @@
+{
+  "id": "a0de36c2-7a5f-4f3f-bdac-a4332d90973b",
+  "revision": 0,
+  "last_node_id": 43,
+  "last_link_id": 78,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "AnimaVRPUI",
+      "pos": [
+        2070,
+        610
+      ],
+      "size": [
+        470,
+        754
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 11
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 64
+        },
+        {
+          "name": "canvas",
+          "shape": 7,
+          "type": "VRP_CANVAS",
+          "link": 77
+        },
+        {
+          "name": "regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": 78
+        },
+        {
+          "name": "global_positive",
+          "shape": 7,
+          "type": "STRING",
+          "link": 27
+        },
+        {
+          "name": "global_negative",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "advanced_settings",
+          "shape": 7,
+          "type": "VRP_ADVSETTINGS",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "patched_model",
+          "type": "MODEL",
+          "links": [
+            9
+          ]
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": []
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "links": [
+            13
+          ]
+        },
+        {
+          "name": "combined_prompt",
+          "type": "STRING",
+          "links": [
+            21,
+            44
+          ]
+        },
+        {
+          "name": "global_prompt_passthrough",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimaVRPUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "vrpSelectedRegion": "499180da-9312-481b-bae1-91b790b0f25a"
+      },
+      "widgets_values": [
+        "{\"canvas\":{\"height\":1024,\"width\":2048},\"regions\":[],\"version\":2}",
+        true,
+        null,
+        "",
+        ""
+      ],
+      "widgets_values_named": {
+        "vrp_state": "{\"canvas\":{\"height\":1024,\"width\":2048},\"regions\":[],\"version\":2}",
+        "prompt_mix": true,
+        "bbox_editor": null,
+        "Add region": "",
+        "Delete selected region": ""
+      }
+    },
+    {
+      "id": 5,
+      "type": "KSampler",
+      "pos": [
+        2960,
+        610
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 9
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 23
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 24
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 13
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        0,
+        "randomize",
+        20,
+        4.5,
+        "er_sde",
+        "sgm_uniform",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 0,
+        "control_after_generate": "randomize",
+        "steps": 20,
+        "cfg": 4.5,
+        "sampler_name": "er_sde",
+        "scheduler": "sgm_uniform",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 6,
+      "type": "UNETLoader",
+      "pos": [
+        -250,
+        320
+      ],
+      "size": [
+        270,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "JANIMA29b_V1.1_bf16.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "JANIMA29b_V1.1_bf16.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 7,
+      "type": "CLIPLoader",
+      "pos": [
+        -250,
+        430
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            11,
+            22,
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "CLIPLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "qwen_3_06b_base.safetensors",
+        "stable_diffusion",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen_3_06b_base.safetensors",
+        "type": "stable_diffusion",
+        "device": "default"
+      }
+    },
+    {
+      "id": 8,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        3270,
+        610
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 14
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAEDecodeTiled",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        512,
+        64,
+        64,
+        8
+      ],
+      "widgets_values_named": {
+        "tile_size": 512,
+        "overlap": 64,
+        "temporal_size": 64,
+        "temporal_overlap": 8
+      }
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        3270,
+        700
+      ],
+      "size": [
+        600,
+        620
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "SaveImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "AnimaVRP"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "AnimaVRP"
+      }
+    },
+    {
+      "id": 11,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        230,
+        290
+      ],
+      "size": [
+        450,
+        290
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "title": "Prompt - Region 1",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "girl in long white chinadress with blue lotus print, short wavy blue hair, sitting on chair, facing viewer, crossed legs, ((tinted sunglasses)), elbow rest, head tilt, ((smile)), looking at viewer over eyewear, closed mouth, mole under mouth"
+      ],
+      "widgets_values_named": {
+        "value": "girl in long white chinadress with blue lotus print, short wavy blue hair, sitting on chair, facing viewer, crossed legs, ((tinted sunglasses)), elbow rest, head tilt, ((smile)), looking at viewer over eyewear, closed mouth, mole under mouth"
+      }
+    },
+    {
+      "id": 12,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        1030,
+        290
+      ],
+      "size": [
+        450,
+        290
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            71
+          ]
+        }
+      ],
+      "title": "Prompt - Region 2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "girl in long black chinadress with golden dragon print, black long hair with double hair buns, bun cover, sitting on chair, facing to the side, facing another, turning head, emotionless, jitome, narrowed eyes, looking at viewer, "
+      ],
+      "widgets_values_named": {
+        "value": "girl in long black chinadress with golden dragon print, black long hair with double hair buns, bun cover, sitting on chair, facing to the side, facing another, turning head, emotionless, jitome, narrowed eyes, looking at viewer, "
+      }
+    },
+    {
+      "id": 13,
+      "type": "SeedNode",
+      "pos": [
+        2960,
+        430
+      ],
+      "size": [
+        270,
+        90
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "SeedNode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        502757067830073,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "seed": 502757067830073,
+        "fixed": "fixed"
+      }
+    },
+    {
+      "id": 14,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2390,
+        480
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 22
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "Positive Encoder",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "text": ""
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2390,
+        510
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 29
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "Negative Encoder",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "text": ""
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 16,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        240,
+        120
+      ],
+      "size": [
+        810,
+        90
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "title": "Negative (Global)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "value": ""
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 17,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        250,
+        -310
+      ],
+      "size": [
+        500,
+        100
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "title": "Positive (Prefix)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "masterpiece, best quality, very aesthetic, absurdres, score_9, score_8, year 2025, newest, highres"
+      ],
+      "widgets_values_named": {
+        "value": "masterpiece, best quality, very aesthetic, absurdres, score_9, score_8, year 2025, newest, highres"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 18,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        420,
+        -310
+      ],
+      "size": [
+        500,
+        190
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            33
+          ]
+        }
+      ],
+      "title": "Negative (Prefix)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "worst quality, low quality, score_1, score_2, score_3, artist name, old, worst quality, normal quality, anatomical nonsense, bad anatomy, long torso, stretched torso, 4 fingers, 6 fingers, extra fingers, watermark,  transparent, low quality, logo, text, signature, censored,"
+      ],
+      "widgets_values_named": {
+        "value": "worst quality, low quality, score_1, score_2, score_3, artist name, old, worst quality, normal quality, anatomical nonsense, bad anatomy, long torso, stretched torso, 4 fingers, 6 fingers, extra fingers, watermark,  transparent, low quality, logo, text, signature, censored,"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 19,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        240,
+        -230
+      ],
+      "size": [
+        810,
+        320
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "title": "Positive (Global)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "watercolor, anime coloring\n\nfrom above, cowboy shot\n\nindoors, east asian architecture, golden and red theme, lattice, lanterns, wooden tea table, ancient chinese style chair, scnr\n\n3girls, sitting on chair, side-by-side, "
+      ],
+      "widgets_values_named": {
+        "value": "watercolor, anime coloring\n\nfrom above, cowboy shot\n\nindoors, east asian architecture, golden and red theme, lattice, lanterns, wooden tea table, ancient chinese style chair, scnr\n\n3girls, sitting on chair, side-by-side, "
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 20,
+      "type": "StringConcatenate",
+      "pos": [
+        2210,
+        480
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 25
+        },
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        ", "
+      ],
+      "widgets_values_named": {
+        "string_a": "",
+        "string_b": "",
+        "delimiter": ", "
+      }
+    },
+    {
+      "id": 24,
+      "type": "VAELoader",
+      "pos": [
+        -600,
+        570
+      ],
+      "size": [
+        270,
+        60
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            36,
+            62
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_vae.safetensors"
+      }
+    },
+    {
+      "id": 25,
+      "type": "StringConcatenate",
+      "pos": [
+        2210,
+        510
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 33
+        },
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        ", "
+      ],
+      "widgets_values_named": {
+        "string_a": "",
+        "string_b": "",
+        "delimiter": ", "
+      }
+    },
+    {
+      "id": 28,
+      "type": "PreviewAny",
+      "pos": [
+        2570,
+        970
+      ],
+      "size": [
+        480,
+        420
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Combined Global Prompt",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 34,
+      "type": "VRPCanvasUI",
+      "pos": [
+        -250,
+        610
+      ],
+      "size": [
+        420,
+        818
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 62
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "links": [
+            65
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            64
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "vrpUiSections": {
+          "creation": false,
+          "restore": false
+        },
+        "Node name for S&R": "VRPCanvasUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "2048 x 1024 (2:1 - 2)",
+        2048,
+        1024,
+        64,
+        "Auto",
+        "{\"version\":1,\"revision\":5,\"alignment_revision\":0,\"active\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"retained\":{\"blank\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"imported\":null},\"history\":[{\"id\":\"02cea4fa-369b-48cf-8690-986b36e9a633\",\"width\":1024,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"editor_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"clipspace-painted-1792330651960.png [input]\",\"editor_ref\":\"clipspace-painted-masked-1792330651960.png [input]\",\"layers\":{\"base_ref\":\"clipspace-mask-1792330651960.png [input]\",\"paint_ref\":\"clipspace-paint-1792330651960.png [input]\"}},{\"id\":\"a04154e3-d000-4461-9be7-1f3153248961\",\"width\":2048,\"height\":1152,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null}],\"redo\":[]}",
+        "Pad",
+        true
+      ],
+      "widgets_values_named": {
+        "preset": "2048 x 1024 (2:1 - 2)",
+        "width": 2048,
+        "height": 1024,
+        "step": 64,
+        "latent_mode": "Auto",
+        "document_state": "{\"version\":1,\"revision\":5,\"alignment_revision\":0,\"active\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"retained\":{\"blank\":{\"id\":\"9f66ce78-1fba-4e71-af55-d601fada9595\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},\"imported\":null},\"history\":[{\"id\":\"02cea4fa-369b-48cf-8690-986b36e9a633\",\"width\":1024,\"height\":1024,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"editor_ref\":\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\",\"layers\":null},{\"id\":\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\",\"width\":2048,\"height\":1024,\"origin\":\"blank\",\"image_ref\":\"clipspace-painted-1792330651960.png [input]\",\"editor_ref\":\"clipspace-painted-masked-1792330651960.png [input]\",\"layers\":{\"base_ref\":\"clipspace-mask-1792330651960.png [input]\",\"paint_ref\":\"clipspace-paint-1792330651960.png [input]\"}},{\"id\":\"a04154e3-d000-4461-9be7-1f3153248961\",\"width\":2048,\"height\":1152,\"origin\":\"blank\",\"image_ref\":null,\"editor_ref\":null,\"layers\":null}],\"redo\":[]}",
+        "alignment_method": "Pad",
+        "apply_to_image": true
+      }
+    },
+    {
+      "id": 35,
+      "type": "VRPRegionUI",
+      "pos": [
+        230,
+        610
+      ],
+      "size": [
+        450,
+        691
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "link": 65
+        },
+        {
+          "name": "previous_regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": null
+        },
+        {
+          "name": "external_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "positive_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "positive_prompt"
+          },
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "links": [
+            69
+          ]
+        },
+        {
+          "name": "regions",
+          "type": "VRP_REGIONS",
+          "links": [
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VRPRegionUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "439e2f4e-49fb-4dd9-a940-8619c4cb1a1f",
+        "char1",
+        "",
+        "",
+        1,
+        "BBox",
+        "{\"version\":1,\"bbox\":{\"x\":0.31641031419926774,\"y\":0,\"width\":0.3644478948997753,\"height\":1},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "",
+        null
+      ],
+      "widgets_values_named": {
+        "region_id": "439e2f4e-49fb-4dd9-a940-8619c4cb1a1f",
+        "label": "char1",
+        "positive_prompt": "",
+        "negative_prompt": "",
+        "weight": 1,
+        "authoring_mode": "BBox",
+        "authoring_state": "{\"version\":1,\"bbox\":{\"x\":0.31641031419926774,\"y\":0,\"width\":0.3644478948997753,\"height\":1},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "legacy_editor_image": "",
+        "region_editor": null
+      }
+    },
+    {
+      "id": 36,
+      "type": "VRPRegionUI",
+      "pos": [
+        1030,
+        610
+      ],
+      "size": [
+        450,
+        691
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "link": 69
+        },
+        {
+          "name": "previous_regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": 70
+        },
+        {
+          "name": "external_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "positive_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "positive_prompt"
+          },
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "links": [
+            75
+          ]
+        },
+        {
+          "name": "regions",
+          "type": "VRP_REGIONS",
+          "links": [
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VRPRegionUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "4a017835-d751-47ad-8e3e-ffda04adf5e9",
+        "char2",
+        "",
+        "",
+        1,
+        "BBox",
+        "{\"version\":1,\"bbox\":{\"x\":0,\"y\":0,\"width\":0.3708417176173148,\"height\":1},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "",
+        null
+      ],
+      "widgets_values_named": {
+        "region_id": "4a017835-d751-47ad-8e3e-ffda04adf5e9",
+        "label": "char2",
+        "positive_prompt": "",
+        "negative_prompt": "",
+        "weight": 1,
+        "authoring_mode": "BBox",
+        "authoring_state": "{\"version\":1,\"bbox\":{\"x\":0,\"y\":0,\"width\":0.3708417176173148,\"height\":1},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "legacy_editor_image": "",
+        "region_editor": null
+      }
+    },
+    {
+      "id": 37,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        1550,
+        290
+      ],
+      "size": [
+        450,
+        290
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            74
+          ]
+        }
+      ],
+      "title": "Prompt - Region 3",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "girl in long red chinadress with flow print, rabbit ears, purple medium hair, sitting on chair, smile, wink, one eye closed, waving at viewer, "
+      ],
+      "widgets_values_named": {
+        "value": "girl in long red chinadress with flow print, rabbit ears, purple medium hair, sitting on chair, smile, wink, one eye closed, waving at viewer, "
+      }
+    },
+    {
+      "id": 38,
+      "type": "VRPRegionUI",
+      "pos": [
+        1550,
+        610
+      ],
+      "size": [
+        450,
+        691
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "link": 75
+        },
+        {
+          "name": "previous_regions",
+          "shape": 7,
+          "type": "VRP_REGIONS",
+          "link": 76
+        },
+        {
+          "name": "external_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "positive_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "positive_prompt"
+          },
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "canvas",
+          "type": "VRP_CANVAS",
+          "links": [
+            77
+          ]
+        },
+        {
+          "name": "regions",
+          "type": "VRP_REGIONS",
+          "links": [
+            78
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VRPRegionUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "2362dcfe-eeb6-4964-aa1a-15e2bc60dbf7",
+        "char3",
+        "",
+        "",
+        1,
+        "BBox",
+        "{\"version\":1,\"bbox\":{\"x\":0.6146059418775647,\"y\":0,\"width\":0.3853940581224354,\"height\":1},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "",
+        null
+      ],
+      "widgets_values_named": {
+        "region_id": "2362dcfe-eeb6-4964-aa1a-15e2bc60dbf7",
+        "label": "char3",
+        "positive_prompt": "",
+        "negative_prompt": "",
+        "weight": 1,
+        "authoring_mode": "BBox",
+        "authoring_state": "{\"version\":1,\"bbox\":{\"x\":0.6146059418775647,\"y\":0,\"width\":0.3853940581224354,\"height\":1},\"painted_mask\":{\"image_ref\":\"\"}}",
+        "legacy_editor_image": "",
+        "region_editor": null
+      }
+    },
+    {
+      "id": 40,
+      "type": "MarkdownNote",
+      "pos": [
+        2580,
+        530
+      ],
+      "size": [
+        350,
+        190
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Built-in CLIP Encoder",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "For ease of use, you can directly encode whatever positive and negative prompts through just the `VRP` Node.\n\nHowever, to demonstrate a more versatile setup for advanced users, here only a patched model output is used and CLIP encoding is done elsewhere."
+      ],
+      "widgets_values_named": {
+        "text": "For ease of use, you can directly encode whatever positive and negative prompts through just the `VRP` Node.\n\nHowever, to demonstrate a more versatile setup for advanced users, here only a patched model output is used and CLIP encoding is done elsewhere."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "MarkdownNote",
+      "pos": [
+        2570,
+        1440
+      ],
+      "size": [
+        420,
+        280
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Combiend Prompt / Passthrough",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "These two outputs are designed for refining using other models (e.g. Illustrious / Krea 2), so you can directly feed all the prompts you need without having to concatenate them yourselves.\n\n* `combined_prompt` - Global positive prompt plus positive prompts from all regions, combined, with newlines.\n\n- `global_prompt_passthrough` - Depending on whether `Prompt Mix` is on or off, it can be the same as `combined_prompt`. or just the global positive prompt.\n\n"
+      ],
+      "widgets_values_named": {
+        "text": "These two outputs are designed for refining using other models (e.g. Illustrious / Krea 2), so you can directly feed all the prompts you need without having to concatenate them yourselves.\n\n* `combined_prompt` - Global positive prompt plus positive prompts from all regions, combined, with newlines.\n\n- `global_prompt_passthrough` - Depending on whether `Prompt Mix` is on or off, it can be the same as `combined_prompt`. or just the global positive prompt.\n\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 42,
+      "type": "MarkdownNote",
+      "pos": [
+        800,
+        320
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "External Prompt Input",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "It's a good idea to use an external `STRING` input for positive prompts."
+      ],
+      "widgets_values_named": {
+        "text": "It's a good idea to use an external `STRING` input for positive prompts."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 43,
+      "type": "MarkdownNote",
+      "pos": [
+        720,
+        620
+      ],
+      "size": [
+        280,
+        390
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Chainable VRP Region Nodes",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "To add new regions to current workflow, add a new `VRP Region` node and chain it anywhere between Image Loader and VRP Core node.\n\nThe preview areas will automatically sync - loaded/edited image, region visualization, and region name."
+      ],
+      "widgets_values_named": {
+        "text": "To add new regions to current workflow, add a new `VRP Region` node and chain it anywhere between Image Loader and VRP Core node.\n\nThe preview areas will automatically sync - loaded/edited image, region visualization, and region name."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      9,
+      3,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      10,
+      6,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      11,
+      7,
+      0,
+      3,
+      1,
+      "CLIP"
+    ],
+    [
+      13,
+      3,
+      3,
+      5,
+      3,
+      "LATENT"
+    ],
+    [
+      14,
+      5,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      15,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      13,
+      0,
+      5,
+      4,
+      "INT"
+    ],
+    [
+      21,
+      3,
+      4,
+      14,
+      1,
+      "STRING"
+    ],
+    [
+      22,
+      7,
+      0,
+      14,
+      0,
+      "CLIP"
+    ],
+    [
+      23,
+      14,
+      0,
+      5,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      24,
+      15,
+      0,
+      5,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      17,
+      0,
+      20,
+      0,
+      "STRING"
+    ],
+    [
+      26,
+      19,
+      0,
+      20,
+      1,
+      "STRING"
+    ],
+    [
+      27,
+      20,
+      0,
+      3,
+      5,
+      "STRING"
+    ],
+    [
+      29,
+      7,
+      0,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      33,
+      18,
+      0,
+      25,
+      0,
+      "STRING"
+    ],
+    [
+      34,
+      16,
+      0,
+      25,
+      1,
+      "STRING"
+    ],
+    [
+      35,
+      25,
+      0,
+      15,
+      1,
+      "STRING"
+    ],
+    [
+      36,
+      24,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      44,
+      3,
+      4,
+      28,
+      0,
+      "STRING"
+    ],
+    [
+      62,
+      24,
+      0,
+      34,
+      0,
+      "VAE"
+    ],
+    [
+      64,
+      34,
+      2,
+      3,
+      2,
+      "LATENT"
+    ],
+    [
+      65,
+      34,
+      0,
+      35,
+      0,
+      "VRP_CANVAS"
+    ],
+    [
+      69,
+      35,
+      0,
+      36,
+      0,
+      "VRP_CANVAS"
+    ],
+    [
+      70,
+      35,
+      1,
+      36,
+      1,
+      "VRP_REGIONS"
+    ],
+    [
+      75,
+      36,
+      0,
+      38,
+      0,
+      "VRP_CANVAS"
+    ],
+    [
+      76,
+      36,
+      1,
+      38,
+      1,
+      "VRP_REGIONS"
+    ],
+    [
+      77,
+      38,
+      0,
+      3,
+      3,
+      "VRP_CANVAS"
+    ],
+    [
+      78,
+      38,
+      1,
+      3,
+      4,
+      "VRP_REGIONS"
+    ],
+    [
+      66,
+      11,
+      0,
+      35,
+      3,
+      "STRING"
+    ],
+    [
+      71,
+      12,
+      0,
+      36,
+      3,
+      "STRING"
+    ],
+    [
+      74,
+      37,
+      0,
+      38,
+      3,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "ds": {
+      "scale": 0.41645092067646117,
+      "offset": [
+        562.2005733596282,
+        351.3835971318685
+      ]
+    },
+    "qgn_navigation_groups": [],
+    "qgn_locked": false,
+    "links_added_by_ue": [],
+    "frontendVersion": "1.53.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "anima_vrp_preview": {
+      "3": {
+        "regions": "[[\"region-node\",\"38\",75,null,76],[\"36\",\"VRPRegionUI\",[[\"region_id\",\"4a017835-d751-47ad-8e3e-ffda04adf5e9\"],[\"label\",\"char2\"],[\"positive_prompt\",\"\"],[\"negative_prompt\",\"\"],[\"weight\",1],[\"authoring_mode\",\"BBox\"],[\"authoring_state\",\"{\\\"version\\\":1,\\\"bbox\\\":{\\\"x\\\":0,\\\"y\\\":0,\\\"width\\\":0.3708417176173148,\\\"height\\\":1},\\\"painted_mask\\\":{\\\"image_ref\\\":\\\"\\\"}}\"],[\"legacy_editor_image\",\"\"],[\"region_editor\",null]],[[\"canvas\",69],[\"previous_regions\",70],[\"external_mask\",null],[\"region_id\",null],[\"label\",null],[\"positive_prompt\",71],[\"negative_prompt\",null],[\"weight\",null],[\"authoring_mode\",null],[\"authoring_state\",null],[\"legacy_editor_image\",null]],{\"Node name for S&R\":\"VRPRegionUI\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"35\",\"VRPRegionUI\",[[\"region_id\",\"439e2f4e-49fb-4dd9-a940-8619c4cb1a1f\"],[\"label\",\"char1\"],[\"positive_prompt\",\"\"],[\"negative_prompt\",\"\"],[\"weight\",1],[\"authoring_mode\",\"BBox\"],[\"authoring_state\",\"{\\\"version\\\":1,\\\"bbox\\\":{\\\"x\\\":0.31641031419926774,\\\"y\\\":0,\\\"width\\\":0.3644478948997753,\\\"height\\\":1},\\\"painted_mask\\\":{\\\"image_ref\\\":\\\"\\\"}}\"],[\"legacy_editor_image\",\"\"],[\"region_editor\",null]],[[\"canvas\",65],[\"previous_regions\",null],[\"external_mask\",null],[\"region_id\",null],[\"label\",null],[\"positive_prompt\",66],[\"negative_prompt\",null],[\"weight\",null],[\"authoring_mode\",null],[\"authoring_state\",null],[\"legacy_editor_image\",null]],{\"Node name for S&R\":\"VRPRegionUI\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"34\",\"VRPCanvasUI\",[[\"preset\",\"2048 x 1024 (2:1 - 2)\"],[\"width\",2048],[\"height\",1024],[\"step\",64],[\"latent_mode\",\"Auto\"],[\"document_state\",\"{\\\"version\\\":1,\\\"revision\\\":5,\\\"alignment_revision\\\":0,\\\"active\\\":{\\\"id\\\":\\\"9f66ce78-1fba-4e71-af55-d601fada9595\\\",\\\"width\\\":2048,\\\"height\\\":1024,\\\"origin\\\":\\\"blank\\\",\\\"image_ref\\\":null,\\\"editor_ref\\\":null,\\\"layers\\\":null},\\\"retained\\\":{\\\"blank\\\":{\\\"id\\\":\\\"9f66ce78-1fba-4e71-af55-d601fada9595\\\",\\\"width\\\":2048,\\\"height\\\":1024,\\\"origin\\\":\\\"blank\\\",\\\"image_ref\\\":null,\\\"editor_ref\\\":null,\\\"layers\\\":null},\\\"imported\\\":null},\\\"history\\\":[{\\\"id\\\":\\\"02cea4fa-369b-48cf-8690-986b36e9a633\\\",\\\"width\\\":1024,\\\"height\\\":1024,\\\"origin\\\":\\\"blank\\\",\\\"image_ref\\\":null,\\\"editor_ref\\\":null,\\\"layers\\\":null},{\\\"id\\\":\\\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\\\",\\\"width\\\":2048,\\\"height\\\":1024,\\\"origin\\\":\\\"blank\\\",\\\"image_ref\\\":\\\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\\\",\\\"editor_ref\\\":\\\"vrp-blank-d1fc49ac-b686-48f8-a849-e57782b31390.png [input]\\\",\\\"layers\\\":null},{\\\"id\\\":\\\"d4092b02-754a-43ac-b1c8-a56de9e36fcc\\\",\\\"width\\\":2048,\\\"height\\\":1024,\\\"origin\\\":\\\"blank\\\",\\\"image_ref\\\":\\\"clipspace-painted-1792330651960.png [input]\\\",\\\"editor_ref\\\":\\\"clipspace-painted-masked-1792330651960.png [input]\\\",\\\"layers\\\":{\\\"base_ref\\\":\\\"clipspace-mask-1792330651960.png [input]\\\",\\\"paint_ref\\\":\\\"clipspace-paint-1792330651960.png [input]\\\"}},{\\\"id\\\":\\\"a04154e3-d000-4461-9be7-1f3153248961\\\",\\\"width\\\":2048,\\\"height\\\":1152,\\\"origin\\\":\\\"blank\\\",\\\"image_ref\\\":null,\\\"editor_ref\\\":null,\\\"layers\\\":null}],\\\"redo\\\":[]}\"],[\"alignment_method\",\"Pad\"],[\"apply_to_image\",true]],[[\"vae\",62],[\"preset\",null],[\"width\",null],[\"height\",null],[\"step\",null],[\"latent_mode\",null],[\"document_state\",null],[\"alignment_method\",null],[\"apply_to_image\",null]],{\"vrpUiSections\":{\"creation\":false,\"restore\":false},\"Node name for S&R\":\"VRPCanvasUI\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"24\",\"VAELoader\",[[\"vae_name\",\"qwen_image_vae.safetensors\"]],[[\"vae_name\",null]],{\"cnr_id\":\"comfy-core\",\"ver\":\"0.37.0\",\"Node name for S&R\":\"VAELoader\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"11\",\"PrimitiveStringMultiline\",[[\"value\",\"girl in long white chinadress with blue lotus print, short wavy blue hair, sitting on chair, facing viewer, crossed legs, ((tinted sunglasses)), elbow rest, head tilt, ((smile)), looking at viewer over eyewear, closed mouth, mole under mouth\"]],[[\"value\",null]],{\"cnr_id\":\"comfy-core\",\"ver\":\"0.37.0\",\"Node name for S&R\":\"PrimitiveStringMultiline\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"12\",\"PrimitiveStringMultiline\",[[\"value\",\"girl in long black chinadress with golden dragon print, black long hair with double hair buns, bun cover, sitting on chair, facing to the side, facing another, turning head, emotionless, jitome, narrowed eyes, looking at viewer, \"]],[[\"value\",null]],{\"cnr_id\":\"comfy-core\",\"ver\":\"0.37.0\",\"Node name for S&R\":\"PrimitiveStringMultiline\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"region-node\",\"36\",69,null,70],[\"region-node\",\"35\",65,null,null]]",
+        "positive": "[[27,\"20\",0],[[\"20\",0,[[\"string_a\",\"\"],[\"string_b\",\"\"],[\"delimiter\",\", \"]],[[\"string_a\",[25,\"17\",0]],[\"string_b\",[26,\"19\",0]],[\"delimiter\",[null,null,null]]],{\"cnr_id\":\"comfy-core\",\"ver\":\"0.37.0\",\"Node name for S&R\":\"StringConcatenate\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"17\",0,[[\"value\",\"masterpiece, best quality, very aesthetic, absurdres, score_9, score_8, year 2025, newest, highres\"]],[[\"value\",[null,null,null]]],{\"cnr_id\":\"comfy-core\",\"ver\":\"0.37.0\",\"Node name for S&R\":\"PrimitiveStringMultiline\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}],[\"19\",0,[[\"value\",\"watercolor, anime coloring\\n\\nfrom above, cowboy shot\\n\\nindoors, east asian architecture, golden and red theme, lattice, lanterns, wooden tea table, ancient chinese style chair, scnr\\n\\n3girls, sitting on chair, side-by-side, \"]],[[\"value\",[null,null,null]]],{\"cnr_id\":\"comfy-core\",\"ver\":\"0.37.0\",\"Node name for S&R\":\"PrimitiveStringMultiline\",\"ue_properties\":{\"widget_ue_connectable\":{},\"input_ue_unconnectable\":{},\"version\":\"7.8\"}}]]]",
+        "masks": {
+          "439e2f4e-49fb-4dd9-a940-8619c4cb1a1f": "[\"[[null,null,null],[]]\",2048,1024,5,\"9f66ce78-1fba-4e71-af55-d601fada9595\",null]",
+          "4a017835-d751-47ad-8e3e-ffda04adf5e9": "[\"[[null,null,null],[]]\",2048,1024,5,\"9f66ce78-1fba-4e71-af55-d601fada9595\",null]",
+          "2362dcfe-eeb6-4964-aa1a-15e2bc60dbf7": "[\"[[null,null,null],[]]\",2048,1024,5,\"9f66ce78-1fba-4e71-af55-d601fada9595\",null]"
+        }
+      },
+      "35": {
+        "mask": "[\"[[null,null,null],[]]\",2048,1024,5,\"9f66ce78-1fba-4e71-af55-d601fada9595\",null]"
+      },
+      "36": {
+        "mask": "[\"[[null,null,null],[]]\",2048,1024,5,\"9f66ce78-1fba-4e71-af55-d601fada9595\",null]"
+      },
+      "38": {
+        "mask": "[\"[[null,null,null],[]]\",2048,1024,5,\"9f66ce78-1fba-4e71-af55-d601fada9595\",null]"
+      }
+    }
+  },
+  "extensions": {
+    "seed_widgets": {
+      "5": 0,
+      "13": 0
+    }
+  },
+  "version": 0.4
+}
