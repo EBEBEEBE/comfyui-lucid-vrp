@@ -1,6 +1,7 @@
 // Current classic frontend's native layered PNG bridge. No global menu/editor patches.
 import { ComfyApp } from '../../scripts/app.js';
 import { imageURL, upload, installDrop } from './classic_adapter.js';
+import { randomUUID } from './uuid.js';
 
 export function referenceString(value) {
     if (typeof value === 'string') return value.trim();
@@ -11,7 +12,7 @@ export function referenceString(value) {
 export async function loadRaster(ref, channel='rgb', {fresh=false}={}) {
     const image = new Image();
     image.crossOrigin = 'anonymous';
-    image.src = imageURL(ref, channel).url+(fresh?`&lucid_canvas=${crypto.randomUUID()}`:'');
+    image.src = imageURL(ref, channel).url+(fresh?`&lucid_canvas=${randomUUID()}`:'');
     await image.decode();
     return image;
 }
@@ -87,7 +88,7 @@ export async function resizeDocument(doc,width,height) {
     const stamp=lastStamp=Math.max(lastStamp+1,Date.now()*1000+Math.floor(Math.random()*1000));
     const [baseBlob,paintBlob,alphaBlob,compositeBlob]=await Promise.all(
         [baseCanvas,paintCanvas,alphaCanvas,composite].map(rasterBlob));
-    const opaqueBase=await upload(baseBlob,`vrp-base-${crypto.randomUUID()}.png`);
+    const opaqueBase=await upload(baseBlob,`vrp-base-${randomUUID()}.png`);
     const base_ref=await upload(alphaBlob,`clipspace-mask-${stamp}.png`,imageURL(opaqueBase).ref);
     const paint_ref=await upload(paintBlob,`clipspace-paint-${stamp}.png`);
     const image_ref=await upload(compositeBlob,`clipspace-painted-${stamp}.png`);

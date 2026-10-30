@@ -1,4 +1,5 @@
 import { app, publish, imageURL, upload, showImage, openEditor, observeValue, installDrop } from './classic_adapter.js';
+import { randomUUID } from './uuid.js';
 const validSize = (w,h) => [w,h].every(n => Number.isInteger(n) && n >= 8 && n <= 4096 && n % 8 === 0);
 app.registerExtension({
     name: 'AnimaVRP.CanvasBuilder',
@@ -114,7 +115,7 @@ app.registerExtension({
         async function receive(file) {
             try {
                 await pending; initialize();
-                const path=await upload(file,`vrp-${crypto.randomUUID()}-${file.name}`);
+                const path=await upload(file,`vrp-${randomUUID()}-${file.name}`);
                 if (removed) return;
                 mutate(()=>{state.image.ref=path; widget('source').value='image'; persist();});
                 schedule(); await pending;
@@ -135,7 +136,7 @@ app.registerExtension({
                     const canvas=document.createElement('canvas'); canvas.width=state.blank.width; canvas.height=state.blank.height;
                     const ctx=canvas.getContext('2d'); ctx.fillStyle='white'; ctx.fillRect(0,0,canvas.width,canvas.height);
                     const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
-                    const path=await upload(blob,`vrp-blank-${crypto.randomUUID()}.png`);
+                    const path=await upload(blob,`vrp-blank-${randomUUID()}.png`);
                     if (removed || token!==epoch) return;
                     widget('image').value=path; await pending;
                 }
