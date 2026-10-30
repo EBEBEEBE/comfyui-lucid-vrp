@@ -7,6 +7,7 @@ import {raster,emptyMask} from './canvas_v1_raster.js';
 import {loadRaster,rasterSize,rasterBlob} from './canvas_document_adapter.js';
 import {upload,imageURL,canvasPreferences} from './classic_adapter.js';
 import {drawSource,TileRaster} from './canvas_v1_tiles.js';
+import {randomUUID} from './uuid.js';
 
 const memory=ref=>ref.startsWith('memory:')||ref.startsWith('@');
 const backgroundId=doc=>`background:${doc.id}`;
@@ -75,15 +76,15 @@ export async function saveCanvasDocument(doc,payload,{assertCurrent=()=>{},saved
         const item=document.layers.find(item=>item.asset_ref===ref),image=assets.get(ref);
         checkSize(image,item?.width??doc.width,item?.height??doc.height);
         if(!memory(ref)){replacements.set(ref,ref);continue;}
-        if(!saved.has(ref))saved.set(ref,await upload(output.assetBlobs?.get(ref)??await rasterBlob(raster(...rasterSize(image),image)),`lucid-asset-${crypto.randomUUID()}.png`));
+        if(!saved.has(ref))saved.set(ref,await upload(output.assetBlobs?.get(ref)??await rasterBlob(raster(...rasterSize(image),image)),`lucid-asset-${randomUUID()}.png`));
         assertCurrent();replacements.set(ref,saved.get(ref));
     }
     const persistent=model.parseDocument({...document,layers:document.layers.map(item=>({...item,asset_ref:item.asset_ref===null?null:replacements.get(item.asset_ref)})),mask:{asset_ref:document.mask.asset_ref===null?null:replacements.get(document.mask.asset_ref)}});
     // Use one canonical render, including hidden-asset validation at reopen.
-    const image_ref=await upload(output.imageBlob,`lucid-composite-${crypto.randomUUID()}.png`);assertCurrent();
+    const image_ref=await upload(output.imageBlob,`lucid-composite-${randomUUID()}.png`);assertCurrent();
     // /upload/mask copies alpha onto the opaque composite without destroying
     // RGB under fully selected mask pixels through PNG premultiplication.
-    const editor_ref=await upload(output.nativeMaskBlob,`lucid-mask-${crypto.randomUUID()}.png`,imageURL(image_ref).ref);assertCurrent();
+    const editor_ref=await upload(output.nativeMaskBlob,`lucid-mask-${randomUUID()}.png`,imageURL(image_ref).ref);assertCurrent();
     const next={...doc,image_ref,editor_ref,layers:null,canvas_document:persistent};
     const loaded=await loadCanvasDocument(next);assertCurrent();
     const image=await loadRaster(image_ref);checkSize(image,doc.width,doc.height);assertCurrent();
@@ -99,7 +100,7 @@ export async function resizeCanvasDocument(doc,width,height,options={}) {
     const {document,assets}=await loadCanvasDocument(doc),matrix=scaling(width/doc.width,height/doc.height);
     const next={...document,width,height,layers:document.layers.map(item=>item.parent_id?item:{...item,transform:multiply(matrix,item.transform)})};
     if(document.mask.asset_ref){
-        const ref=`memory:resize:${crypto.randomUUID()}`,mask=emptyMask(width,height);
+        const ref=`memory:resize:${randomUUID()}`,mask=emptyMask(width,height);
         drawSource(mask.getContext('2d'),assets.get(document.mask.asset_ref),0,0,width,height);assets.set(ref,mask);next.mask={asset_ref:ref};
     }
     return saveCanvasDocument({...doc,width,height},{document:next,assets},options);

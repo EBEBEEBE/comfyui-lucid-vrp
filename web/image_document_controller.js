@@ -6,6 +6,7 @@ import { referenceString, loadRaster, raster, rasterSize, whiteRaster, rasterBlo
     resizeDocument, clipspaceReference, installDocumentInputs, editorMaskOverlay } from './canvas_document_adapter.js';
 
 import { viewMetadata, alignRaster, isBlankRaster, minimumStep, normalizeDimension } from './image_alignment.js';
+import { randomUUID } from './uuid.js';
 // Loaded only on rich-editor operations; old workflows keep their native path.
 const canvasBridge=()=>import('./canvas_loader_bridge.js');
 
@@ -75,7 +76,7 @@ export function attachImageDocument(node, integration={}) {
             !state.retained || !Number.isInteger(state.revision) || state.revision<0)
             throw Error('Invalid saved canvas document state');
         state={...state,...trimTimeline(state.history,state.redo)};
-        if(state.active.id==='initial'&&!Object.hasOwn(state.active,'canvas_document'))state.active.id=crypto.randomUUID();
+        if(state.active.id==='initial'&&!Object.hasOwn(state.active,'canvas_document'))state.active.id=randomUUID();
         state=clone(state);persist();
     }
     function assertDocumentImage(doc,image) {
@@ -136,7 +137,7 @@ export function attachImageDocument(node, integration={}) {
     }
     async function importReference(reference,token=start('Importing image…')) {
         try {
-            const inspected=await inspectSavedRaster(reference,'imported',crypto.randomUUID());
+            const inspected=await inspectSavedRaster(reference,'imported',randomUUID());
             const image=await documentImage(inspected.document);
             if(current(token)){warning=inspected.warning;commit(inspected.document,image);}
         }catch(e){if(current(token))report(e);}
@@ -196,7 +197,7 @@ export function attachImageDocument(node, integration={}) {
             if(!activeImage)display(image);
             // Edit the retained full-resolution source, not the aligned working view.
             if(!doc.image_ref) {
-                const ref=await upload(await rasterBlob(raster(doc.width,doc.height,image)),`vrp-blank-${crypto.randomUUID()}.png`);
+                const ref=await upload(await rasterBlob(raster(doc.width,doc.height,image)),`vrp-blank-${randomUUID()}.png`);
                 if(!current(token))return;
                 doc={...doc,image_ref:ref,editor_ref:ref};commit(doc,image,{history:false});
             }
@@ -247,7 +248,7 @@ export function attachImageDocument(node, integration={}) {
     async function createBlank() {
         try {
             const [width,height]=proposedSize();warning=null;
-            await activate({id:crypto.randomUUID(),width,height,origin:'blank',image_ref:null,editor_ref:null,layers:null});
+            await activate({id:randomUUID(),width,height,origin:'blank',image_ref:null,editor_ref:null,layers:null});
         }catch(e){report(e);}
     }
     async function resize() {

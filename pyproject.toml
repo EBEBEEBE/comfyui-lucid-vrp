@@ -1,6 +1,6 @@
 [project]
 name = "lucid-vrp"
-version = "0.1.0"
+version = "0.1.1"
 description = "Visual image editing, Anima regional prompting, and MOSS-Image layout prompting for classic ComfyUI."
 license = { file = "LICENSE" }
 requires-python = ">=3.11"

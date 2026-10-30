@@ -10,6 +10,7 @@ import {icon} from './canvas_v1_icons.js';
 import {TileRaster,isTiled,residentBytes,drawSource} from './canvas_v1_tiles.js';
 import {BINDINGS,resolveBehavior,eventBinding,bindingIssue} from './canvas_v1_input.js';
 import {moveLayerObject} from './canvas_v1_layer_order.js';
+import {randomUUID as uid} from './uuid.js';
 
 const TOOLS=[['brush','B','✎','Brush'],['eraser','E','▱','Eraser'],['move','V','↗','Transform'],
     ['fill','G','▨','Fill connected area'],['pick','I','⌖','Sample visible color']];
@@ -22,7 +23,6 @@ const SHORTCUTS=[['Brush / Eraser / Transform','B / E / V'],['Fill / Eyedropper'
     ['Select layer above / below','Page Up / Down'],['Pan canvas','Space + drag / middle drag / Hand'],
     ['Zoom / adjust hovered control','Wheel'],['Context menu','Right click / Shift F10'],['Accept / discard transform','Enter / Escape'],['Cancel current gesture / close popup','Escape']];
 const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
-const uid=()=>crypto.randomUUID();
 const htmlEscape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const equalPixels=(a,b)=>{const x=a.getContext('2d').getImageData(0,0,a.width,a.height).data,
     y=b.getContext('2d').getImageData(0,0,b.width,b.height).data;return x.every((v,i)=>v===y[i]);};
