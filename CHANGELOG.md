@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.2 — 2026-10-31
+
+### Documentation
+
+- Added Simplified Chinese, Traditional Chinese and Japanese READMEs with language navigation.
+- Added multilingual sections and language-specific documentation links to the compact Registry README.
+- Fixed the Registry branch's installation-prerequisites link to open the full documentation on `main`.
+
+This release updates documentation and package metadata; runtime behavior is unchanged.
+
 ## 0.1.1 — 2026-10-30
 
 ### Fixed
