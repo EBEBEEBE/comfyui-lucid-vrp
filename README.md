@@ -1,4 +1,7 @@
 ![Title](docs/images/header.webp)
+
+**English** | [简体中文](docs/zh-Hans/README.md) | [繁體中文](docs/zh-Hant/README.md) | [日本語](docs/ja/README.md)
+
 ---
 **LuCiD VRP** (Visual Regional Painter) brings image loading, layered editing, **Anima regional prompting**, and **MOSS-Image layout prompting** together in ComfyUI. Built with **image-to-image (img2img) workflows** in mind, it helps you compose, edit, and describe your next generation through a responsive visual interface.
 
