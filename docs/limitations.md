@@ -5,7 +5,7 @@
 ## Supported setup
 
 LuCiD VRP uses **classic ComfyUI**; Nodes 2.0 and general subgraph support are
-not currently supported. The [installation prerequisites](../README.md#prerequisites)
+not currently supported. The [installation prerequisites](https://github.com/EBEBEEBE/comfyui-lucid-vrp/blob/main/README.md#prerequisites)
 list the required Python and model components.
 
 The image loaders and LuCiD Canvas can be used with other image workflows.
