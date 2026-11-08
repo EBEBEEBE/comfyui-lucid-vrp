@@ -21,6 +21,9 @@ export function regionColor(id) {
     return '#'+rgb.map(value=>Math.round((value+offset)*255).toString(16).padStart(2,'0')).join('');
 }
 
+const hiddenWidgetSize = () => [0, -4];
+const hiddenWidgetLayoutSize = () => ({minHeight:0,maxHeight:0});
+
 export function setWidgetVisible(widget, visible) {
     if (!widget) return false;
     // A controller may expose selected fields, but a presentation-owned source
@@ -30,10 +33,13 @@ export function setWidgetVisible(widget, visible) {
     if (!widget.vrpOriginalLayout) widget.vrpOriginalLayout = {
         computeSize: widget.computeSize, computeLayoutSize: widget.computeLayoutSize,
     };
-    widget.hidden = !visible;
-    if (widget.element) widget.element.style.display = visible ? '' : 'none';
-    widget.computeSize = visible ? widget.vrpOriginalLayout.computeSize : () => [0, -4];
-    widget.computeLayoutSize = visible ? widget.vrpOriginalLayout.computeLayoutSize : () => ({minHeight:0,maxHeight:0});
+    if (changed) widget.hidden = !visible;
+    const display = visible ? '' : 'none';
+    if (widget.element && widget.element.style.display !== display) widget.element.style.display = display;
+    const computeSize = visible ? widget.vrpOriginalLayout.computeSize : hiddenWidgetSize;
+    const computeLayoutSize = visible ? widget.vrpOriginalLayout.computeLayoutSize : hiddenWidgetLayoutSize;
+    if (widget.computeSize !== computeSize) widget.computeSize = computeSize;
+    if (widget.computeLayoutSize !== computeLayoutSize) widget.computeLayoutSize = computeLayoutSize;
     return changed;
 }
 
